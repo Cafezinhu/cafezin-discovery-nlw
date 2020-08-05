@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/partials/header.css">
+    <link rel="stylesheet" href="styles/partials/forms.css">
+    <link rel="stylesheet" href="styles/partials/page-entregar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+    <script src="scripts/addField.js" defer></script>
+</head>
+<body id="page-entregar">
+    <div id="container">
+        <header class="page-header">
+            <div class="top-bar-container">
+                <a href="/">
+                    <img src="/images/icons/back.svg" alt="Voltar">
+                </a>
+                <p class="logo">Cafezin</p>
+            </div>
+
+            <div class="header-content">
+                <strong>Que incrível que você quer entregar café</strong>
+                <p>O primeiro passo, é preencher o formulário de inscrição</p>
+            </div>
+        </header>
+        <main>
+            <form action="" id="create-coffee">
+                <fieldset>
+                    <legend>Seus dados</legend>
+
+                    <div class="input-block">
+                        <label for="name">Nome completo</label>
+                        <input name="name" id="name" required>
+                    </div>
+
+                    <div class="input-block">
+                        <label for="avatar">Link foto do café <small>(comece com https://)</small></label>
+                        <input name="avatar" id="avatar" type="url" required>
+                    </div>
+
+                    <div class="input-block">
+                        <label for="avatar">WhatsApp <small>(somente números)</small></label>
+                        <input name="avatar" id="avatar" type="number" required>
+                    </div>
+
+                    <div class="textarea-block">
+                        <label for="bio">Biografia</label>
+                        <textarea name="bio" id="bio" required></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Sobre o café</legend>
+                    <div class="select-block">
+                        <label for="subject">Café</label>
+                        <select name="subject" id="subject">
+                            <option value="" disabled="" hidden="">Selecione um café</option>
+                            <option value="1">Expresso</option>
+                            <option value="2">Café com leite</option>
+                            <option value="3">Capuccino</option>
+                            <option value="4">Americano</option>
+                            <option value="5">Ristretto</option>
+                            <option value="6">Árabe</option>
+                            <option value="7">Cremoso</option>
+                            <option value="8">Macchiato</option>
+                        </select>
+                    </div>
+
+                    <div class="input-block">
+                        <label for="cost">Preço do café<small>(R$)</small></label>
+                        <input name="cost" type="number" id="cost" required></div>
+                </fieldset>
+                <fieldset id="schedule-items">
+                    <legend>Horários disponívels
+                        <button type="button" id="add-time">+ Novo horário</button>
+                    </legend>
+
+                    <div class="schedule-item">
+                        <div class="select-block">
+                            <label for="weekday">Dia da semana</label>
+                            <select name="weekday[]">
+                                <option value="0">Domingo</option>
+                                <option value="1">Segunda</option>
+                                <option value="2">Terça</option>
+                                <option value="3">Quarta</option>
+                                <option value="4">Quinta</option>
+                                <option value="5">Sexta</option>
+                                <option value="6">Sábado</option>
+                            </select>
+                        </div>
+
+                        <div class="input-block">
+                            <label for="time_from">Das</label>
+                            <input type="time" name="time_from[]" required>
+                        </div>
+
+                        <div class="input-block">
+                            <label for="time_to">Até</label>
+                            <input type="time" name="time_to[]" required>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+            <footer>
+                <p>
+                    <img src="/images/icons/warning.svg" alt="Aviso importante">
+                    Importante!<br>Preencha todos os campos!
+                </p>
+                <button type="submit" form="create-coffee">Salvar cadastro</button>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
