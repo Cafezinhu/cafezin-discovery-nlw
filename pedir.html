@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/partials/page-pedir.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+</head>
+<body id="page-pedir">
+    <div id="container">
+        <header class="page-header">
+            <div class="top-bar-container">
+                <a href="/">
+                    <img src="/images/icons/back.svg" alt="Voltar">
+                </a>
+                <p class="logo">Cafezin</p>
+            </div>
+
+            <div class="header-content">
+                <strong>Esses são os cafezins disponíveis</strong>
+                <form id="search-coffee">
+                    <div class="select-block">
+                        <label for="subject">Café</label>
+                        <select name="subject" id="subject">
+                            <option value="" disabled="" hidden="">Selecione um café</option>
+                            <option value="1">Expresso</option>
+                            <option value="2">Café com leite</option>
+                            <option value="3">Capuccino</option>
+                            <option value="4">Americano</option>
+                            <option value="5">Ristretto</option>
+                            <option value="6">Árabe</option>
+                            <option value="7">Cremoso</option>
+                            <option value="8">Macchiato</option>
+                        </select>
+                    </div>
+                    <div class="select-block">
+                        <label for="adocante">Tipo de adoçante</label>
+                        <select name="adocante" id="adocante">
+                            <option value="1">Adoçante</option>
+                            <option value="2">Açúcar</option>
+                        </select>
+                    </div>
+                    <div class="input-block">
+                        <label for="time">Horário</label>
+                        <input name="time" type="time" id="time" min="0" max="24">
+                    </div>
+                    <button type="submit">Filtrar</button>
+                </form>
+            </div>
+        </header>
+        <main>
+            <article class="coffee-item">
+                <header>
+                    <img src="https://www.comidaereceitas.com.br/img/sizeswp/1200x675/2011/07/capuccino_caseirinho.jpg" alt="Capuccino">
+                    <div>
+                        <strong>Capuccino</strong>
+                        <span>Cafeteria da Cidade</span>
+                    </div>
+                </header>
+
+                <p>O melhor capuccino de Aracaju!</p>
+
+                <footer>
+                    <p>Preço<strong>R$ 20,00</strong></p>
+                    <button type="button"><img src="/images/icons/whatsapp.svg" alt="WhatsApp">Entrar em contato</button>
+                </footer>
+            </article>
+            <article class="coffee-item">
+                <header>
+                    <img src="https://www.comidaereceitas.com.br/img/sizeswp/1200x675/2011/07/capuccino_caseirinho.jpg" alt="Capuccino">
+                    <div>
+                        <strong>Capuccino</strong>
+                        <span>Cafeteria da Cidade</span>
+                    </div>
+                </header>
+
+                <p>O melhor capuccino de Aracaju!</p>
+                
+                <footer>
+                    <p>Preço<strong>R$ 20,00</strong></p>
+                    <button type="button"><img src="/images/icons/whatsapp.svg" alt="WhatsApp">Entrar em contato</button>
+                </footer>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
