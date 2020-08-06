@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/partials/header.css">
+    <link rel="stylesheet" href="styles/partials/forms.css">
+    <link rel="stylesheet" href="styles/partials/page-pedir.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+</head>
+<body id="page-pedir">
+    <div id="container">
+        <header class="page-header">
+            <div class="top-bar-container">
+                <a href="/">
+                    <img src="/images/icons/back.svg" alt="Voltar">
+                </a>
+                <p class="logo">Cafezin</p>
+            </div>
+
+            <div class="header-content">
+                <strong>Esses são os cafezins disponíveis</strong>
+                <form id="search-coffee">
+                    <div class="select-block">
+                        <label for="subject">Café</label>
+                        <select name="subject" id="subject">
+                            <option value="" disabled="" hidden="">Selecione um café</option>
+                            {%for subject in subjects %}
+                            <option value="{{loop.index}}" {{"selected" if filters.subject == loop.index}}>
+                                {{subject}}
+                            </option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="select-block">
+                        <label for="weekday">Dia da semana</label>
+                        <select name="weekday" id="weekday">
+                            {%for weekday in weekdays %}
+                            <option value="{{loop.index0}}" {{"selected" if filters.weekday == loop.index0}}>
+                                {{weekday}}
+                            </option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="input-block">
+                        <label for="time">Horário</label>
+                        <input name="time" type="time" id="time" min="0" max="24" value="{{filters.time}}">
+                    </div>
+                    <button type="submit">Filtrar</button>
+                </form>
+            </div>
+        </header>
+        <main>
+            {%for coffee in coffees %}
+            <article class="coffee-item">
+                <header>
+                    <img src="{{coffee.avatar}}" alt="{{coffee.name}}">
+                    <div>
+                        <strong>{{coffee.type}}</strong>
+                        <span>{{coffee.name}}</span>
+                    </div>
+                </header>
+
+                <p>{{coffee.bio}}</p>
+
+                <footer>
+                    <p>Preço<strong>R$ {{coffee.cost}}</strong></p>
+                    <a type="button" href="https://api.whatsapp.com/send?phone=55{{coffee.whatsapp}}&text=Gostaria de pedir um {{coffee.type}}"><img src="/images/icons/whatsapp.svg" alt="WhatsApp">Entrar em contato</a>
+                </footer>
+            </article>
+            {%endfor%}
+        </main>
+    </div>
+</body>
+</html>

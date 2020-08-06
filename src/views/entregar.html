@@ -32,7 +32,7 @@
                     <legend>Seus dados</legend>
 
                     <div class="input-block">
-                        <label for="name">Nome completo</label>
+                        <label for="name">Nome da empresa/pessoa</label>
                         <input name="name" id="name" required>
                     </div>
 
@@ -42,8 +42,8 @@
                     </div>
 
                     <div class="input-block">
-                        <label for="avatar">WhatsApp <small>(somente números)</small></label>
-                        <input name="avatar" id="avatar" type="number" required>
+                        <label for="whatsapp">WhatsApp <small>(somente números)</small></label>
+                        <input name="whatsapp" id="whatsapp" type="number" required>
                     </div>
 
                     <div class="textarea-block">
@@ -54,17 +54,14 @@
                 <fieldset>
                     <legend>Sobre o café</legend>
                     <div class="select-block">
-                        <label for="subject">Café</label>
-                        <select name="subject" id="subject">
+                        <label for="type">Café</label>
+                        <select name="type" id="type">
                             <option value="" disabled="" hidden="">Selecione um café</option>
-                            <option value="1">Expresso</option>
-                            <option value="2">Café com leite</option>
-                            <option value="3">Capuccino</option>
-                            <option value="4">Americano</option>
-                            <option value="5">Ristretto</option>
-                            <option value="6">Árabe</option>
-                            <option value="7">Cremoso</option>
-                            <option value="8">Macchiato</option>
+                            {%for subject in subjects %}
+                            <option value="{{loop.index}}">
+                                {{subject}}
+                            </option>
+                            {%endfor%}
                         </select>
                     </div>
 
@@ -81,13 +78,11 @@
                         <div class="select-block">
                             <label for="weekday">Dia da semana</label>
                             <select name="weekday[]">
-                                <option value="0">Domingo</option>
-                                <option value="1">Segunda</option>
-                                <option value="2">Terça</option>
-                                <option value="3">Quarta</option>
-                                <option value="4">Quinta</option>
-                                <option value="5">Sexta</option>
-                                <option value="6">Sábado</option>
+                                {%for weekday in weekdays %}
+                                <option value="{{loop.index0}}">
+                                    {{weekday}}
+                                </option>
+                                {%endfor%}
                             </select>
                         </div>
 
