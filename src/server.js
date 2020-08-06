@@ -49,12 +49,12 @@ function getSubject(id){
 }
 
 function homePage(req, res){
-    return res.render(__dirname + "/views/index.html");
+    return res.render("index.html");
 }
 
 function pagePedir(req, res){
     const filters = req.query;
-    return res.render(__dirname + "/views/pedir.html", {coffees, filters, subjects, weekdays});
+    return res.render("pedir.html", {coffees, filters, subjects, weekdays});
 }
 
 function pageEntregar(req, res){
@@ -65,13 +65,12 @@ function pageEntregar(req, res){
         coffees.push(data);
         return res.redirect("/pedir");
     }
-    return res.render(__dirname + "/views/entregar.html", {subjects, weekdays})
+    return res.render("entregar.html", {subjects, weekdays})
 }
 
 const express = require('express');
 const app = express();
 const nunjucks = require('nunjucks');
-const { json } = require('express');
 
 nunjucks.configure('src/views',{
     express: app,
