@@ -133,6 +133,13 @@
     background: var(--color-secondary-dark);
 }
 
+#page-pedir main .no-results{
+    max-width: 30rem;
+    margin: 12rem auto;
+    text-align: center;
+
+}
+
 @media(min-width: 700px){
     #page-pedir #container{
         max-width: 100vw;

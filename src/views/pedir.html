@@ -24,12 +24,12 @@
                 <strong>Esses são os cafezins disponíveis</strong>
                 <form id="search-coffee">
                     <div class="select-block">
-                        <label for="subject">Café</label>
-                        <select name="subject" id="subject">
+                        <label for="type">Café</label>
+                        <select name="type" id="type">
                             <option value="" disabled="" hidden="">Selecione um café</option>
-                            {%for subject in subjects %}
-                            <option value="{{loop.index}}" {{"selected" if filters.subject == loop.index}}>
-                                {{subject}}
+                            {%for type in types %}
+                            <option value="{{loop.index}}" {{"selected" if filters.type == loop.index}}>
+                                {{type}}
                             </option>
                             {%endfor%}
                         </select>
@@ -53,24 +53,29 @@
             </div>
         </header>
         <main>
-            {%for coffee in coffees %}
-            <article class="coffee-item">
-                <header>
-                    <img src="{{coffee.avatar}}" alt="{{coffee.name}}">
-                    <div>
-                        <strong>{{coffee.type}}</strong>
-                        <span>{{coffee.name}}</span>
-                    </div>
-                </header>
 
-                <p>{{coffee.bio}}</p>
+            {% if coffees == "" %}
+            <p class="no-results">Nenhum café encontrado com sua pesquisa.</p>
+            {%else%}
+                {%for coffee in coffees %}
+                <article class="coffee-item">
+                    <header>
+                        <img src="{{coffee.avatar}}" alt="{{coffee.name}}">
+                        <div>
+                            <strong>{{coffee.type}}</strong>
+                            <span>{{coffee.name}}</span>
+                        </div>
+                    </header>
 
-                <footer>
-                    <p>Preço<strong>R$ {{coffee.cost}}</strong></p>
-                    <a type="button" href="https://api.whatsapp.com/send?phone=55{{coffee.whatsapp}}&text=Gostaria de pedir um {{coffee.type}}"><img src="/images/icons/whatsapp.svg" alt="WhatsApp">Entrar em contato</a>
-                </footer>
-            </article>
-            {%endfor%}
+                    <p>{{coffee.bio}}</p>
+
+                    <footer>
+                        <p>Preço<strong>R$ {{coffee.cost}}</strong></p>
+                        <a type="button" href="https://api.whatsapp.com/send?phone=55{{coffee.whatsapp}}&text=Gostaria de pedir um {{coffee.type}}"><img src="/images/icons/whatsapp.svg" alt="WhatsApp">Entrar em contato</a>
+                    </footer>
+                </article>
+                {%endfor%}
+            {%endif%}
         </main>
     </div>
 </body>

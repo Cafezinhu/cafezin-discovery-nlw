@@ -27,7 +27,7 @@
             </div>
         </header>
         <main>
-            <form action="" id="create-coffee">
+            <form action="/save-form" id="create-coffee" method="POST">
                 <fieldset>
                     <legend>Seus dados</legend>
 
@@ -57,9 +57,9 @@
                         <label for="type">Café</label>
                         <select name="type" id="type">
                             <option value="" disabled="" hidden="">Selecione um café</option>
-                            {%for subject in subjects %}
+                            {%for type in types %}
                             <option value="{{loop.index}}">
-                                {{subject}}
+                                {{type}}
                             </option>
                             {%endfor%}
                         </select>
